@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "Product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "price": {
+      "type": "float"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "deliveryMethod": {
+      "type": "enumeration",
+      "enum": [
+        "localPickup",
+        "ship",
+        "localDelivery"
+      ]
+    },
+    "featured_image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "nested.image"
+    },
+    "product_images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "nested.image"
+    },
+    "inventory": {
+      "type": "integer"
+    },
+    "product_collections": {
+      "collection": "collection",
+      "via": "product"
+    },
+    "sku": {
+      "type": "string"
+    }
+  }
+}
